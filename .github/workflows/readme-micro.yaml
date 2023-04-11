@@ -1,8 +1,5 @@
 name: ReadMe Micro
 
-env:
-  BASE_URL: ${{ vars.BASE_URL }}
-
 # Run workflow for every push to the `main` branch
 on:
   push:
@@ -14,7 +11,11 @@ jobs:
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v3
+
+      # Run GitHub Action to sync all OpenAPI files in the repo
       - name: GitHub Action
-        uses: readmeio/readme-micro@v1.0.0
+        uses: readmeio/readme-micro@v1.2.0
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
         with:
           readme-micro: "'**/*.{yaml,yml,json}' --key=${{ secrets.README_MICRO_SECRET }}"
