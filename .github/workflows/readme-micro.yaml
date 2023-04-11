@@ -16,6 +16,7 @@ jobs:
       - name: GitHub Action
         uses: readmeio/readme-micro@v1.0.0
         env:
+          FOO: bar
           BASE_URL: ${{ vars.BASE_URL }}
         with:
           readme-micro: "'**/*.{yaml,yml,json}' --key=${{ secrets.README_MICRO_SECRET }}"
