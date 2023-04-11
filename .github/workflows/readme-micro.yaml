@@ -11,12 +11,20 @@ jobs:
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v3
-
+      - name: Set up Variables
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
+      - name: Verify Variables
+        run: |
+          NL=$'\n'
+          echo "$NL$NL"
+          echo "vars.BASE_URL: ${{ vars.BASE_URL }}"
+          echo "$NL$NL"
+          echo "env:"
+          env
+          echo "$NL$NL"
       # Run GitHub Action to sync all OpenAPI files in the repo
       - name: GitHub Action
         uses: readmeio/readme-micro@v1.0.0
-        env:
-          FOO: bar
-          BASE_URL: ${{ vars.BASE_URL }}
         with:
           readme-micro: "'**/*.{yaml,yml,json}' --key=${{ secrets.README_MICRO_SECRET }}"
