@@ -1,5 +1,8 @@
 name: ReadMe Micro
 
+env:
+  BASE_URL: ${{ vars.BASE_URL }}
+
 # Run workflow for every push to the `main` branch
 on:
   push:
@@ -11,21 +14,6 @@ jobs:
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v3
-      - name: Set up Variables
-        run: "set up vars"
-        env:
-          BASE_URL: ${{ vars.BASE_URL }}
-      - name: Verify Variables
-        run: |
-          NL=$'\n'
-          echo "$NL$NL"
-          echo "env BASE_URL: $BASE_URL"
-          echo "vars.BASE_URL: ${{ vars.BASE_URL }}"
-          echo "$NL$NL"
-          echo "env:"
-          env
-          echo "$NL$NL"
-      # Run GitHub Action to sync all OpenAPI files in the repo
       - name: GitHub Action
         uses: readmeio/readme-micro@v1.0.0
         with:
