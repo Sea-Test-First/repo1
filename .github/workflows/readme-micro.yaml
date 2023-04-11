@@ -12,6 +12,7 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v3
       - name: Set up Variables
+        run: "set up vars"
         env:
           BASE_URL: ${{ vars.BASE_URL }}
       - name: Verify Variables
