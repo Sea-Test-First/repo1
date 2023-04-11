@@ -19,6 +19,7 @@ jobs:
         run: |
           NL=$'\n'
           echo "$NL$NL"
+          echo "env BASE_URL: $BASE_URL"
           echo "vars.BASE_URL: ${{ vars.BASE_URL }}"
           echo "$NL$NL"
           echo "env:"
