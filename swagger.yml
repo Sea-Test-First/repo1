@@ -88,8 +88,8 @@ paths:
                 - sold
               default: available
       responses:
-        '200':
-          description: successful operation
+        '201':
+          description: successful op
           content:
             application/xml:
               schema:
