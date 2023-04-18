@@ -150,8 +150,8 @@ paths:
     get:
       tags:
         - pet
-      summary: Find pet by ID
-      description: Returns a single pet
+      summary: Find pet by IDs
+      description: Returns one pet
       operationId: getPetById
       parameters:
         - name: petId
